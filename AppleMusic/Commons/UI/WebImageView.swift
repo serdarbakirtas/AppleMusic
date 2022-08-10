@@ -18,7 +18,7 @@ struct WebImageView: View {
         AsyncImage(url: url, transaction: .init(animation: .spring())) { phase in
             switch phase {
                 case .empty:
-                    ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                    ActivityIndicator(style: .medium, isAnimating: .constant(true))
                     .opacity(0.2)
                     .transition(.opacity.combined(with: .scale))
             case .success(let image):
@@ -27,7 +27,7 @@ struct WebImageView: View {
                     .aspectRatio(contentMode: .fill)
                     .transition(.opacity.combined(with: .scale))
             case .failure(_):
-                ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                ActivityIndicator(style: .medium, isAnimating: .constant(true))
             @unknown default:
                 fatalError()
             }

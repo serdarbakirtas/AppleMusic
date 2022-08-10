@@ -5,14 +5,13 @@
 //  Created by Hasan Bakirtas on 20.07.22.
 //
 
-import Foundation
 import SwiftUI
 
+/// Wrap a standard UIActivityIndicator to make it available in SwiftUI.
 struct ActivityIndicator: UIViewRepresentable {
 
-    @Binding var isAnimating: Bool
-
     let style: UIActivityIndicatorView.Style
+    @Binding var isAnimating: Bool
 
     func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
         return UIActivityIndicatorView(style: style)
@@ -20,5 +19,22 @@ struct ActivityIndicator: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    }
+}
+
+
+// MARK: - Preview
+
+struct ActivityIndicator_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ActivityIndicator(style: .medium, isAnimating: .constant(true))
+                .padding()
+                .previewLayout(.sizeThatFits)
+
+            ActivityIndicator(style: .large, isAnimating: .constant(true))
+                .padding()
+                .previewLayout(.sizeThatFits)
+        }
     }
 }

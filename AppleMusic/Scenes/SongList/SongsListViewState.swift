@@ -14,6 +14,9 @@ final class SongsListViewState: ObservableObject {
     // Response data
     @Published var dataSource: [SongsItem] = []
 
+    /// The state of the request
+    @Published var requestState: RequestState<Void, Error> = .pending
+
     // When set to true, triggers to the next screen.
     @Published var goToNextScreen: Bool = false
 

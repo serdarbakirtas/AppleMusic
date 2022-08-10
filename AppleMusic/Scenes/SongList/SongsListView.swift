@@ -78,7 +78,7 @@ private extension SongsListView {
     }
 
     var fetchDataWithPagination: some View {
-        ActivityIndicator(isAnimating: .constant(true), style: .medium)
+        ActivityIndicator(style: .medium, isAnimating: .constant(true))
             .onAppear { searchText.isEmpty ? interactor.loadChartSongList() : interactor.updateSongList(with: searchText) }
     }
 }
