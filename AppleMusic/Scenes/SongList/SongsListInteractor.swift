@@ -41,8 +41,6 @@ extension SongsListInteractor {
 
     func loadChartSongList() {
 
-        viewState.requestState = .progressing
-        
         networkProvider.response(from: StandartChartsSongListRepository(apiRepo: .getSongList(offset: viewState.currentPage)))
             .map { return $0.results.songs.first!.data.map(SongsItem.init) }
             .sink( receiveCompletion: { [weak self] completion in
@@ -87,7 +85,6 @@ extension SongsListInteractor {
 extension SongsListInteractor {
 
     private func checkPaginationAndAddSongItem(with songList: [SongsItem]) {
-        viewState.requestState = .succeeded
         viewState.currentPage += 20
         viewState.dataSource.append(contentsOf: songList)
         if songList.count < perPage {
@@ -97,7 +94,6 @@ extension SongsListInteractor {
 
     /// if receive process is not completed
     private func failureResponseData(error: APIError) {
-        viewState.requestState = .failed(error)
         errorSubject.assign(to: \.viewState.errorMessage, on: self).store(in: &cancellables)
         errorSubject.send(error)
         viewState.isShownError.toggle()
