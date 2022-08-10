@@ -19,7 +19,7 @@ public class MockedNetworkProvider: APIRepo {
         let future = Future<Request.Response, APIError> { promise in
 
             if self.isApiError {
-                return promise(.failure(APIError.httpError(status: self.urlResponse.statusCode)))
+                return promise(.failure(APIError.httpCode(self.urlResponse.statusCode)))
             }
 
             if let url = Bundle.main.url(forResource: "charts", withExtension: "json") {

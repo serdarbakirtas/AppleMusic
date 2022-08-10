@@ -11,7 +11,7 @@ import XCTest
 
 class SongListViewObservedTests: XCTestCase {
 
-    var sut: SongsListView.Observed!
+    var sut: SongsListInteractor!
     
     private var cancellables = Set<AnyCancellable>()
 
@@ -19,7 +19,7 @@ class SongListViewObservedTests: XCTestCase {
 
         super.setUp()
 
-        sut = SongsListView.Observed()
+        sut = SongsListInteractor()
     }
 
     func test_givenRequestType_whenChartPathIsCalled_thenThePathIsEqual() {
@@ -115,13 +115,13 @@ class SongListViewObservedTests: XCTestCase {
 
         sut.resetResponseData()
         
-        XCTAssertTrue(sut.dataSource.isEmpty)
+        XCTAssertTrue(sut.viewState.dataSource.isEmpty)
     }
     
     func test_givenSongList_whenUpdateDataSource_thenTheCurrentPageIsZero() {
 
         sut.updateSongList(with: "")
         
-        XCTAssertEqual(sut.currentPage, 0)
+        XCTAssertEqual(sut.viewState.currentPage, 0)
     }
 }
