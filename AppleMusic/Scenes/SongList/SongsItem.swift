@@ -30,6 +30,11 @@ struct SongsItem: Identifiable {
     var genres: [String] {
         return item.attributes.genreNames
     }
+    
+    var m4aUrl: URL? {
+        guard let url = item.attributes.previews.first?.url else { return nil }
+        return url
+    }
 
     var songImage: URL? {
         guard let url = item.attributes.artwork.url else { return URL(string: "") }

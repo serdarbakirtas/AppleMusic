@@ -13,7 +13,6 @@ struct AppleMusicApp: App {
         WindowGroup {
             SongsListView(interactor: SongsListInteractor())
                 .navigationViewStyle(StackNavigationViewStyle())
-                .environment(\.colorScheme, .light)
         }
     }
 }
