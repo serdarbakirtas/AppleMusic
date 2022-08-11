@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-/// A loading spinner on top of a transparent overlay that is always visible.
 struct LoadingSpinnerOverlay: View {
 
     var body: some View {
@@ -19,7 +18,6 @@ struct LoadingSpinnerOverlay: View {
     }
 }
 
-/// A loading indicator that is controlled by a RequestState (only visible in `.progressing` state).
 struct RequestStateLoadingSpinnerOverlay<Value, Failure>: View {
 
     let requestState: RequestState<Value, Failure>

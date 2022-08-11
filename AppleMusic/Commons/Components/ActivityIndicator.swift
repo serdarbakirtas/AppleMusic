@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/// Wrap a standard UIActivityIndicator to make it available in SwiftUI.
 struct ActivityIndicator: UIViewRepresentable {
 
     let style: UIActivityIndicatorView.Style

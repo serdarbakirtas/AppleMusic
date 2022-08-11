@@ -8,9 +8,6 @@
 import Foundation
 import Combine
 
-/// A type that represents the state of an asynchronous request. Views can then align their current appearance in accordance
-/// with the current RequestState. It is usually owned by a screen state and set as part of the request publisher
-/// pipeline, conveniently in combination with the mapToRequestState() combine operator.
 enum RequestState<Value, Failure> {
 
     case pending
