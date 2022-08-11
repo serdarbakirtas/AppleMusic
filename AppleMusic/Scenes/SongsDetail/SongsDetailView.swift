@@ -109,7 +109,8 @@ private extension SongsDetailView {
             color: .appleDarkGray,
             fontSize: 16,
             weight: .bold,
-            horizontalSize: true
+            horizontalSize: false,
+            verticalSize: true
         )
     }
     
@@ -120,7 +121,8 @@ private extension SongsDetailView {
                 value: "Song: " + viewState.item.songName,
                 color: .appleLightGray,
                 fontSize: 14,
-                horizontalSize: true
+                horizontalSize: false,
+                verticalSize: true
             )
             .padding(.top, 2)
 
@@ -128,7 +130,8 @@ private extension SongsDetailView {
                 value: "Album: " + viewState.item.albumName,
                 color: .appleLightGray,
                 fontSize: 14,
-                horizontalSize: true
+                horizontalSize: false,
+                verticalSize: true
             )
         }
     }
@@ -151,7 +154,8 @@ private extension SongsDetailView {
                     value: viewState.item.genres[index],
                     color: .appleLightGray,
                     fontSize: 14,
-                    horizontalSize: true
+                    horizontalSize: false,
+                    verticalSize: true
                 )
 
                 Divider()

@@ -17,6 +17,7 @@ struct CustomText: View {
     var alignment: Alignment?
     var maxWidth: CGFloat?
     var horizontalSize: Bool?
+    var verticalSize: Bool?
     
     var body: some View {
         VStack {
@@ -25,7 +26,7 @@ struct CustomText: View {
                 .frame(width: width, alignment: alignment ?? .leading)
                 .foregroundColor(color)
                 .font(.system(size: fontSize, weight: weight ?? .regular, design: .default))
-                .fixedSize(horizontal: horizontalSize ?? false, vertical: false)
+                .fixedSize(horizontal: horizontalSize ?? false, vertical: verticalSize ?? false)
         }
     }
 }
