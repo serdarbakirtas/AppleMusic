@@ -22,23 +22,35 @@ struct PlayerControlsView: View {
             
             sliderView
             
+            timerView
+            
             buttonMute
         }
         .onAppear {
-            if let url = musicURL {
-                player.setCurrentItem(AVPlayerItem(url: url))
-            }
+            guard let url = musicURL else { return }
+            player.setCurrentItem(AVPlayerItem(url: url))
         }
     }
 }
 
 extension PlayerControlsView {
+
+    var timerView: some View {
+        CustomText(
+            value: player.timeToMinutesSeconds,
+            color: .appleDarkGray,
+            fontSize: 16,
+            horizontalSize: true,
+            verticalSize: true
+        )
+    }
     
     var buttonPlayPause: some View {
         Button(action: {
             player.playPause()
         }, label: {
-            Image(systemName: player.iconPlayPause)
+            Image(systemName: player.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                .imageScale(.large)
                 .foregroundColor(.appleBlue)
         })
     }
@@ -47,7 +59,7 @@ extension PlayerControlsView {
         Button(action: {
             player.mute()
         }, label: {
-            Image(systemName: player.iconMute)
+            Image(systemName: player.isMuted ? "pause.fill" : "speaker.3.fill")
                 .foregroundColor(.appleBlue)
         })
     }

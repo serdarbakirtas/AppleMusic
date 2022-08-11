@@ -1,5 +1,5 @@
 //
-//  PlayerViewModel.swift
+//  AudioPlayer.swift
 //  AppleMusic
 //
 //  Created by Hasan Bakirtas on 11.08.22.
@@ -12,19 +12,21 @@ class AudioPlayer: AVPlayer, ObservableObject {
     
     /// status of play/pause and mute
     @Published var isPlaying = false
-    @Published var isMute = false
     
     /// player durations
     @Published var isEditingCurrentTime = false
     @Published var currentTime: Double = .zero
     @Published var duration: Double?
 
-    /// Update the icon as play or pause
-    @Published var iconPlayPause = "pause.fill"
-    @Published var iconMute = "speaker.3.fill"
-
     private var subscriptions: Set<AnyCancellable> = []
     private var timeObserver: Any?
+
+    var timeToMinutesSeconds: String {
+        let (m,s) = ((Int(currentTime) % 3600) / 60, (Int(currentTime) % 3600) % 60)
+        let minutes =  m < 10 ? "0\(m)" : "\(m)"
+        let seconds =  s < 10 ? "0\(s)" : "\(s)"
+        return "\(minutes):\(seconds)"
+    }
 
     deinit {
         if let timeObserver = timeObserver {
@@ -52,10 +54,8 @@ class AudioPlayer: AVPlayer, ObservableObject {
                 switch status {
                 case .playing:
                     self?.isPlaying = true
-                    self?.iconPlayPause = "pause.fill"
                 case .paused:
                     self?.isPlaying = false
-                    self?.iconPlayPause = "play.fill"
                 case .waitingToPlayAtSpecifiedRate:
                     break
                 @unknown default:
@@ -71,6 +71,12 @@ class AudioPlayer: AVPlayer, ObservableObject {
             }
         }
     }
+}
+
+
+// MARK: - Child functions
+
+extension AudioPlayer {
 
     func setCurrentItem(_ item: AVPlayerItem) {
         currentTime = .zero
@@ -92,10 +98,5 @@ class AudioPlayer: AVPlayer, ObservableObject {
 
     func mute() {
         isMuted.toggle()
-        if isMuted {
-            iconMute = "speaker.fill"
-        } else {
-            iconMute = "speaker.3.fill"
-        }
     }
 }
