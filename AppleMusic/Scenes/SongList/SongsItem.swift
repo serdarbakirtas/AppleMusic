@@ -32,8 +32,7 @@ struct SongsItem: Identifiable {
     }
     
     var m4aUrl: URL? {
-        guard let url = item.attributes.previews.first?.url else { return nil }
-        return url
+        return item.attributes.previews.compactMap { $0.url }.first
     }
 
     var songImage: URL? {

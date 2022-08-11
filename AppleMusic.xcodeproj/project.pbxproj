@@ -10,6 +10,8 @@
 		3036B2F728A2FD8100740225 /* SongsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036B2F628A2FD8100740225 /* SongsListInteractor.swift */; };
 		3036B2F928A3059100740225 /* SongsListViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036B2F828A3059100740225 /* SongsListViewState.swift */; };
 		3036B2FE28A3864700740225 /* SongsDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036B2FD28A3864700740225 /* SongsDetailViewState.swift */; };
+		30DAC89628A52F8F0041017B /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DAC89428A52F8F0041017B /* PlayerControlsView.swift */; };
+		30DAC89728A52F8F0041017B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DAC89528A52F8F0041017B /* AudioPlayer.swift */; };
 		30DF7D1528A39C2800F28DD6 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF7D1428A39C2800F28DD6 /* RequestState.swift */; };
 		30DF7D1728A39C5700F28DD6 /* LoadingSpinnerOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF7D1628A39C5700F28DD6 /* LoadingSpinnerOverlay.swift */; };
 		A21503B5288892B8009CF367 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21503B4288892B8009CF367 /* ActivityIndicator.swift */; };
@@ -69,6 +71,8 @@
 		3036B2F628A2FD8100740225 /* SongsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsListInteractor.swift; sourceTree = "<group>"; };
 		3036B2F828A3059100740225 /* SongsListViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsListViewState.swift; sourceTree = "<group>"; };
 		3036B2FD28A3864700740225 /* SongsDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsDetailViewState.swift; sourceTree = "<group>"; };
+		30DAC89428A52F8F0041017B /* PlayerControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
+		30DAC89528A52F8F0041017B /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		30DF7D1428A39C2800F28DD6 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		30DF7D1628A39C5700F28DD6 /* LoadingSpinnerOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSpinnerOverlay.swift; sourceTree = "<group>"; };
 		A21503B4288892B8009CF367 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -144,9 +148,19 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		30DAC89328A52F7D0041017B /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				30DAC89528A52F8F0041017B /* AudioPlayer.swift */,
+				30DAC89428A52F8F0041017B /* PlayerControlsView.swift */,
+			);
+			path = MusicPlayer;
+			sourceTree = "<group>";
+		};
 		30DF7D1228A39BFB00F28DD6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				30DAC89328A52F7D0041017B /* MusicPlayer */,
 				A21503B4288892B8009CF367 /* ActivityIndicator.swift */,
 				30DF7D1628A39C5700F28DD6 /* LoadingSpinnerOverlay.swift */,
 			);
@@ -519,6 +533,7 @@
 				30DF7D1728A39C5700F28DD6 /* LoadingSpinnerOverlay.swift in Sources */,
 				A227546E2888229F00518E03 /* WebImageView.swift in Sources */,
 				A243630E288E9DEA0067AEDC /* Dependencies.swift in Sources */,
+				30DAC89628A52F8F0041017B /* PlayerControlsView.swift in Sources */,
 				3036B2FE28A3864700740225 /* SongsDetailViewState.swift in Sources */,
 				A21503B5288892B8009CF367 /* ActivityIndicator.swift in Sources */,
 				A22754652888103D00518E03 /* NavigationBarModifier.swift in Sources */,
@@ -533,6 +548,7 @@
 				A2275467288811B300518E03 /* ColorPallet.swift in Sources */,
 				3036B2F728A2FD8100740225 /* SongsListInteractor.swift in Sources */,
 				30DF7D1528A39C2800F28DD6 /* RequestState.swift in Sources */,
+				30DAC89728A52F8F0041017B /* AudioPlayer.swift in Sources */,
 				A2A92B19288586C80091E59B /* APIError.swift in Sources */,
 				A288CCBA2886AB5C003F8F23 /* SongListItemView.swift in Sources */,
 			);

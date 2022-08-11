@@ -29,18 +29,13 @@ struct SongsDetailView: View {
 
             VStack(alignment: .center, spacing: 8) {
 
-                playerControlView
-                
                 artistView
                 
+                PlayerControlsView(musicURL: interactor.getMusicURL)
+                
                 content
-            }.padding()
-        }
-        .onAppear {
-            interactor.setPlayer()
-        }
-        .onDisappear {
-            viewState.player.removeAllItems()
+            }
+            .padding()
         }
         .edgesIgnoringSafeArea(.all)
         .background(ColorPallet.WHITE)
@@ -62,45 +57,6 @@ private extension SongsDetailView {
             }
             Spacer()
         }
-    }
-    
-    var playerControlView: some View {
-        HStack {
-            buttonPlayPause
-            
-            sliderView
-            
-            buttonMute
-        }
-    }
-    
-    var buttonPlayPause: some View {
-        VStack {
-            Button(action: {
-                interactor.playPause()
-            }, label: {
-                Image(systemName: viewState.iconPlayPause)
-                    .foregroundColor(.appleDarkGray)
-            })
-        }
-    }
-
-    var sliderView: some View {
-        Slider(
-            value: $viewState.currentTime,
-            in: 0...viewState.duration,
-            onEditingChanged: interactor.sliderEditingChanged
-        ) {}
-            .accentColor(.appleDarkGray)
-    }
-    
-    var buttonMute: some View {
-        Button(action: {
-            interactor.mute()
-        }, label: {
-            Image(systemName: viewState.iconMute)
-                .foregroundColor(.appleDarkGray)
-        })
     }
     
     var artistView: some View {
