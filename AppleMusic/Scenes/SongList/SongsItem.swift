@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SongsItem: Identifiable {
+class SongsItem: Identifiable {
     
     private let item: SongData
 

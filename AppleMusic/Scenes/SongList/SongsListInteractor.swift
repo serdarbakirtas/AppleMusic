@@ -18,7 +18,7 @@ class SongsListInteractor {
     
     // MARK: Private properties
     private var cancellables = Set<AnyCancellable>()
-    private var updateDelayedCancellable: AnyCancellable?
+    private var updateCancellable: AnyCancellable?
 
     // Set 500 miliseconds to wait for the text to end to make a request.
     private let timeInterval: TimeInterval = 0.5
@@ -28,7 +28,6 @@ class SongsListInteractor {
     
     // Error message
     private var errorSubject: PassthroughSubject<APIError, Never> = PassthroughSubject<APIError, Never>()
-
     init() {
         self.viewState = SongsListViewState()
     }
@@ -41,7 +40,7 @@ extension SongsListInteractor {
 
     func loadChartSongList() {
 
-        networkProvider.response(from: StandartChartsSongListRepository(apiRepo: .getSongList(offset: viewState.currentPage)))
+        updateCancellable = networkProvider.response(from: StandartChartsSongListRepository(apiRepo: .getSongList(offset: viewState.currentPage)))
             .map { return $0.results.songs.first!.data.map(SongsItem.init) }
             .sink( receiveCompletion: { [weak self] completion in
                 guard case .failure(let error) = completion else { return }
@@ -49,12 +48,11 @@ extension SongsListInteractor {
             }, receiveValue: { [weak self] songList in
                 self?.checkPaginationAndAddSongItem(with: songList)
             })
-            .store(in: &cancellables)
     }
 
     func updateSongList(with search: String) {
 
-        updateDelayedCancellable = Just<Void>(())
+        updateCancellable = Just<Void>(())
             .delay(for: .seconds(timeInterval), scheduler: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 guard case .failure = completion else { return }
@@ -66,7 +64,7 @@ extension SongsListInteractor {
 
     func loadSongList(with search: String) {
 
-        networkProvider.response(from: StandartSongListRepository(apiRepo: .getFilteredSongList(term: search, offset: viewState.currentPage)))
+        updateCancellable = networkProvider.response(from: StandartSongListRepository(apiRepo: .getFilteredSongList(term: search, offset: viewState.currentPage)))
             .map { return $0.results.songs.data.map(SongsItem.init) }
             .sink( receiveCompletion: { [weak self] completion in
                 guard case .failure(let error) = completion else { return }
@@ -75,7 +73,6 @@ extension SongsListInteractor {
             }, receiveValue: { [weak self] songList in
                 self?.checkPaginationAndAddSongItem(with: songList)
             })
-            .store(in: &cancellables)
     }
 }
 
@@ -103,5 +100,6 @@ extension SongsListInteractor {
         viewState.currentPage = 0
         viewState.dataSource.removeAll()
         cancellables.removeAll()
+        updateCancellable?.cancel()
     }
 }
