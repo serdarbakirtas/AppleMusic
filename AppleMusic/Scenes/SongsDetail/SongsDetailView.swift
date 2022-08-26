@@ -29,10 +29,10 @@ struct SongsDetailView: View {
 
             VStack(alignment: .center, spacing: 8) {
 
+                playerControlView
+                
                 artistView
-                
-                PlayerControlsView(musicURL: interactor.getMusicURL)
-                
+
                 content
             }
             .padding()
@@ -56,6 +56,15 @@ private extension SongsDetailView {
                 genreItemsView
             }
             Spacer()
+        }
+    }
+
+    var playerControlView: some View {
+
+        VStack {
+            if let musicURL = interactor.getMusicURL {
+                PlayerControlsView(musicURL: musicURL)
+            }
         }
     }
     

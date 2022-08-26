@@ -21,6 +21,7 @@ class AudioPlayer: AVPlayer, ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
     private var timeObserver: Any?
 
+    /// return minutes(00) : seconds(00)
     var timeToMinutesSeconds: String {
         let (m,s) = ((Int(currentTime) % 3600) / 60, (Int(currentTime) % 3600) % 60)
         let minutes =  m < 10 ? "0\(m)" : "\(m)"
@@ -32,6 +33,7 @@ class AudioPlayer: AVPlayer, ObservableObject {
         if let timeObserver = timeObserver {
             removeTimeObserver(timeObserver)
         }
+        subscriptions.removeAll()
     }
 
     override init() {

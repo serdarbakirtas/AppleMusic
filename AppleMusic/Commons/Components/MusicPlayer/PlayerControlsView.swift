@@ -11,7 +11,7 @@ import SwiftUI
 
 struct PlayerControlsView: View {
 
-    var musicURL: URL?
+    var musicURL: URL
 
     @StateObject var player = AudioPlayer()
 
@@ -27,8 +27,7 @@ struct PlayerControlsView: View {
             buttonMute
         }
         .onAppear {
-            guard let url = musicURL else { return }
-            player.setCurrentItem(AVPlayerItem(url: url))
+            player.setCurrentItem(AVPlayerItem(url: musicURL))
         }
     }
 }
@@ -44,7 +43,7 @@ extension PlayerControlsView {
             verticalSize: true
         )
     }
-    
+
     var buttonPlayPause: some View {
         Button(action: {
             player.playPause()
