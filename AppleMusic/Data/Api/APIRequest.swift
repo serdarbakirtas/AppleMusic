@@ -13,7 +13,7 @@ final class APIURLRequest {
     private let baseURL = URL(string: "https://api.music.apple.com/v1/catalog/de/")!
     
     // Generate Developer Token: https://rudrank.blog/postman-apple-music-api
-    private let developerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IkIyV0dTMlM0NzkifQ.eyJpc3MiOiJZNVhINkI5R0hZIiwiaWF0IjoxNjU3OTI1NzI3LjY0NjI3MzEsImV4cCI6MTY2MzEwOTcyNy42NDYyNzMxfQ.-8GDgZMjOIol8jtxF0Q-IkEnG8CSmYyHuoeusP1jciBShyfukMFzBCCAGmRM5an3Y7ZAhgylt3X07DhLAXpLDg"
+    private let developerToken = "XXX"
 
     init() {}
     

@@ -14,9 +14,6 @@ class AudioPlayerTests: XCTestCase {
 
     var sut = AudioPlayer()
 
-    var showThanksViewExpectation = XCTestCase().expectation(description: "Show Thanks View")
-
-    
     override func setUp() {
 
         super.setUp()
