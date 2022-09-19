@@ -39,6 +39,11 @@ It does provide a view architecture that can decouple view state from view actio
         + Always put private keyword if func is used only in that class
     - // MARK: API Calls (for interactor)
 
+## How to Generate Apple Music Token
+***
++ [rudrank.blog](https://rudrank.blog/postman-apple-music-api)
++ [SwiftJWTSample](https://github.com/klaas/SwiftJWTSample)
+
 ## Tech
 ***
 + Xcode 13.4.1
