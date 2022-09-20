@@ -23,8 +23,8 @@ struct SongListItemView: View {
                 WebImageView(url: songImage, widht: 50, height: 50)
             }
             VStack(alignment: .leading) {
-                CustomText(value: songItem.songName, color: .appleDarkGray, fontSize: 16, horizontalSize: true)
-                CustomText(value: songItem.artistName, color: .appleLightGray, fontSize: 16, horizontalSize: true)
+                CustomText(value: songItem.songName, color: .appleDarkGray, fontSize: 16, horizontalSize: false)
+                CustomText(value: songItem.artistName, color: .appleLightGray, fontSize: 16, horizontalSize: false)
             }
         }
         .padding(.horizontal, 0).padding(.vertical, 4)
