@@ -59,3 +59,7 @@ It does provide a view architecture that can decouple view state from view actio
 + [The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 + [Clean Architecture for SwiftUI](https://nalexn.github.io/clean-architecture-swiftui/)
 + [Dependency Injection in Swift using](https://www.avanderlee.com/swift/dependency-injection/)
+
+# Screens
+<img src="https://github.com/serdarbakirtas/AppleMusic/blob/release/Screenshots/Songs.png" alt="HTML5 Icon" width="276" height="598"> <img src="https://github.com/serdarbakirtas/AppleMusic/blob/release/Screenshots/MusicPlay.png" alt="HTML5 Icon" width="276" height="598">
+
