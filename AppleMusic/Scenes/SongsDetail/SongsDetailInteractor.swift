@@ -1,5 +1,5 @@
 //
-//  SongsDetailView+Observed.swift
+//  SongsDetailInteractor.swift
 //  AppleMusic
 //
 //  Created by Hasan Bakirtas on 20.07.22.
