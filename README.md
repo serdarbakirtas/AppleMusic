@@ -61,5 +61,7 @@ It does provide a view architecture that can decouple view state from view actio
 + [Dependency Injection in Swift using](https://www.avanderlee.com/swift/dependency-injection/)
 
 # Screens
-<img src="https://github.com/serdarbakirtas/AppleMusic/blob/release/Screenshots/Songs.png" alt="HTML5 Icon" width="276" height="598"> <img src="https://github.com/serdarbakirtas/AppleMusic/blob/release/Screenshots/MusicPlay.png" alt="HTML5 Icon" width="276" height="598">
+<img src="https://github.com/serdarbakirtas/AppleMusic/blob/release/Screenshots/Songs.png" alt="HTML5 Icon" width="276" height="598"> <img src="https://github.com/serdarbakirtas/AppleMusic/blob/release/Screenshots/MusicPlay.png" alt="HTML5 Icon" width="276" height="598"> 
+
+https://user-images.githubusercontent.com/4365303/191203936-0075ea5e-307f-4c7c-8d31-6c84c30c6f6b.mov
 
